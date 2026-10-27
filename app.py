@@ -82,7 +82,7 @@ class GameDesktop:
 class App:
     def __init__(self,hotkeys=True):
         self.root=tk.Tk();self.root.title('蔬果保卫战')
-        self.root.geometry('640x660');self.root.minsize(520,640)
+        self.root.geometry('640x660');self.root.minsize(640,640)
         self.root.configure(bg='#f3f6fb');self.root.protocol('WM_DELETE_WINDOW',self.close)
         self.detector=Detector();self.entry_reader=EntryReader()
         self.events=queue.Queue()
@@ -94,6 +94,7 @@ class App:
         box=tk.Frame(self.root,bg='#f3f6fb');box.pack(fill='both',expand=True,padx=24,pady=22)
         top=tk.Frame(box,bg='#f3f6fb');top.pack(fill='x',pady=(0,20))
         tk.Label(top,text='蔬果保卫战',bg='#f3f6fb',fg='#17263b',font=('Microsoft YaHei UI',21,'bold')).pack(side='left')
+        tk.Label(top,text='（作者：Aest1valis）',bg='#f3f6fb',fg='#65758a',font=('Microsoft YaHei UI',9)).pack(side='left',padx=(6,0))
         tk.Label(top,textvariable=self.status,bg='#f3f6fb',fg='#65758a',font=('Microsoft YaHei UI',10),wraplength=260,justify='right').pack(side='right')
         row=tk.Frame(box,bg='#f3f6fb');row.pack(fill='x');row.grid_columnconfigure(0,weight=1);row.grid_columnconfigure(1,weight=1)
         self.buttons={}
